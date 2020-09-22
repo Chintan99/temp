@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ml Deploy</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            }
+        body:before{
+            content: '';
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            background: -webkit-linear-gradient(rgb(92, 57, 219),rgb(173, 218, 210),rgb(235, 193, 56)); 
+            background: -o-linear-gradient(rgb(92, 57, 219),rgb(173, 218, 210),rgb(235, 193, 56)); 
+            background: -moz-linear-gradient(rgb(92, 57, 219),rgb(173, 218, 210),rgb(235, 193, 56)); 
+            background: linear-gradient(rgb(92, 57, 219), rgb(173, 218, 210),rgb(235, 193, 56));  
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: relative;
+            -webkit-filter: blur(10px);
+            -moz-filter: blur(10px);
+            -o-filter: blur(10px);
+            -ms-filter: blur(10px);
+            filter: blur(10px);
+        }
+        .form
+        {
+            position: absolute;
+            top:5%;
+            left:30%;
+            margin-bottom: 20px;
+            align-self :center;
+            /*transform: translate(-50%,-50%);*/
+            width: 400px;
+            height: relative;
+            padding: 50px 40px;
+            box-sizing: border-box;
+            background: rgba(0,0,0,.55);
+        
+        }
+        .form h2 {
+            margin: 0;
+            padding: 0 0 20px;
+            color:white;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        .form p
+        {
+            margin: 0;
+            padding: 0;
+            font-weight: bold;
+            color: #fff;
+        }
+        .form input
+        {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .form input[type="text"]
+        {
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .form input[type="submit"] {
+            height: 40px;
+            color: whitesmoke;
+            font-weight: bold;
+            font-size: 15px;
+            background: rgb(28, 235, 131);
+            cursor: pointer;
+            border-radius: 25px;
+            border: none;
+            outline: none;
+            margin-top: 5%;
+        }
+        .form a
+        {
+            color: #fff;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        input[type="checkbox"] {
+            width: 20%;
+        }
+        h2{
+            color:white;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <h2>Spam SMS Detection</h2>
+        <form action="{{ url_for('predict')}}" method="post">
+<input type="text" name="sms" placeholder="Message to Check" required="required" autocomplete="off" />
+            
+            <input type="submit" name="" value="Predict">
+        </form>
+        <form>
+            <p>{{ prediction_text }}</p>
+        </form>
+    </div>
+</body>
+</html>
